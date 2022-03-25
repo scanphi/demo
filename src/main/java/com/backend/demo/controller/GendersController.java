@@ -17,7 +17,6 @@ import java.util.Map;
 public class GendersController {
     @Autowired
     private GendersRepository gendersRepository;
-    //private ResourceNotFoundException ResourceNotFoundException;
     /********************************************************************************************/
     @GetMapping("/genders")
     public List<Genders> getAllGenders() {
@@ -25,7 +24,7 @@ public class GendersController {
     }
     /********************************************************************************************/
     @GetMapping("/genders/{id}")
-    public ResponseEntity<Genders> getEmployeeById(@PathVariable(value = "id") Long gendersId)
+    public ResponseEntity<Genders> getGendersById(@PathVariable(value = "id") Long gendersId)
         throws ResourceNotFoundException {
         Genders genders = gendersRepository.findById(gendersId)
         .orElseThrow(() -> new ResourceNotFoundException("Género no encontrado para el Id :: " + gendersId));
@@ -38,7 +37,7 @@ public class GendersController {
     }
     /********************************************************************************************/
     @PutMapping("/genders/{id}")
-    public ResponseEntity<Genders> updateEGenders(@PathVariable(value = "id") Long gendersId,
+    public ResponseEntity<Genders> updateGenders(@PathVariable(value = "id") Long gendersId,
       @Valid @RequestBody Genders gendersDetails) throws ResourceNotFoundException {
         Genders genders = gendersRepository.findById(gendersId)
         .orElseThrow(() -> new ResourceNotFoundException("Género no encontrado para el Id :: " + gendersId));
