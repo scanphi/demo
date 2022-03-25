@@ -1,7 +1,6 @@
 package com.backend.demo.model;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.Date;
 
@@ -34,8 +33,8 @@ public class Employees {
     @Temporal(TemporalType.TIMESTAMP)
     private Date birthdate;
     /********************************************************************************************/
-    //@OneToMany(cascade = CascadeType.ALL, mappedBy = "employeesId")
-    //private Collection<EmployeeWorkedHours> employeeWorkedHoursCollection;
+    @OneToMany(mappedBy = "employeesId")
+    private Collection<EmployeeWorkedHours> employeeWorkedHoursCollection;
     /********************************************************************************************/
     public Employees() {
     }
