@@ -40,7 +40,7 @@ public class EmployeesController {
             Calendar calendar = Calendar.getInstance();
             calendar.setTime(birthdate);
             int yearBirthdate = calendar.get(Calendar.YEAR);
-            int currentYear = Calendar. getInstance(). get(Calendar. YEAR);
+            int currentYear = Calendar.getInstance(). get(Calendar. YEAR);
 
             if((currentYear-yearBirthdate)>=18){
                 employeesRepository.save(employees);

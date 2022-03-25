@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.math.BigDecimal;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -39,9 +40,13 @@ public class EmployeeWorkedHoursController {
         ResponsePost responsePost = new ResponsePost();
         BigDecimal horasPermitidas = new BigDecimal(20);
         try{
-            System.out.println("\n\n\n\n\n\n"+(employeeWorkedHours.getWorkedHours().compareTo(horasPermitidas))+"\n\n\n\n\n\n");
+
             int comparacion = (employeeWorkedHours.getWorkedHours().compareTo(horasPermitidas));
-            if(comparacion==0||comparacion==-1){
+
+            Date date = new Date();
+            int comparacionFechas = employeeWorkedHours.getWorkedDate().compareTo(date);
+
+            if((comparacion==0 || comparacion==-1) && (comparacion==0 || comparacionFechas==-1)){
                 employeeWorkedHoursRepository.save(employeeWorkedHours);
                 responsePost.setId(employeeWorkedHours.getEmployeeWorkedHoursId());
                 responsePost.setSuccess(Boolean.TRUE);
