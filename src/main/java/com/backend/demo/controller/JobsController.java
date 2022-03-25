@@ -58,4 +58,11 @@ public class JobsController {
         return response;
     }
     /********************************************************************************************/
+    @GetMapping("/jobs/byname/{jobName}")
+    public ResponseEntity<Jobs> getJobsByName(@PathVariable(value = "jobName") String jobName)
+        throws ResourceNotFoundException {
+        Jobs jobs = jobsRepository.getJobsByName(jobName);
+        return ResponseEntity.ok().body(jobs);
+    }
+    /********************************************************************************************/
 }
