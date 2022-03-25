@@ -4,6 +4,7 @@ import com.backend.demo.exception.ResourceNotFoundException;
 import com.backend.demo.model.Employees;
 import com.backend.demo.model.Jobs;
 import com.backend.demo.repository.EmployeesRepository;
+import com.backend.demo.response.ResponsePost;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -33,8 +34,17 @@ public class EmployeesController {
     }
     /********************************************************************************************/
     @PostMapping("/employees")
-    public Employees createEmployees(@Valid @RequestBody Employees employees) {
-        return employeesRepository.save(employees);
+    public ResponsePost createEmployees(@Valid @RequestBody Employees employees) {
+        ResponsePost responsePost = new ResponsePost();
+        if (!employeesRepository.existsByNameAndLastName(employees.getName(), employees.getLastName())){
+            employeesRepository.save(employees);
+            responsePost.setId(employees.getEmployeesId());
+            responsePost.setSuccess(Boolean.TRUE);
+        }else{
+            responsePost.setId(null);
+            responsePost.setSuccess(Boolean.TRUE);
+        }
+        return responsePost;
     }
     /********************************************************************************************/
     @PutMapping("/employees/{id}")
@@ -46,7 +56,7 @@ public class EmployeesController {
         employees.setGendersId(employeesDetails.getGendersId());
         employees.setJobsId(employeesDetails.getJobsId());
         employees.setName(employeesDetails.getName());
-        employees.setLast_name(employeesDetails.getLast_name());
+        employees.setLastName(employeesDetails.getLastName());
         employees.setBirthdate(employeesDetails.getBirthdate());
 
         final Employees updatedEmployees = employeesRepository.save(employees);

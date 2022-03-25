@@ -1,10 +1,11 @@
 package com.backend.demo.controller;
 
+import com.backend.demo.response.ResponsePost;
 import com.backend.demo.exception.ResourceNotFoundException;
 import com.backend.demo.model.EmployeeWorkedHours;
-import com.backend.demo.model.Employees;
 import com.backend.demo.repository.EmployeeWorkedHoursRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,8 +34,17 @@ public class EmployeeWorkedHoursController {
     }
     /********************************************************************************************/
     @PostMapping("/employeeworkedhours")
-    public EmployeeWorkedHours createEmployeeWorkedHours(@Valid @RequestBody EmployeeWorkedHours employeeWorkedHours) {
-        return employeeWorkedHoursRepository.save(employeeWorkedHours);
+    public ResponsePost createEmployeeWorkedHours(@Valid @RequestBody EmployeeWorkedHours employeeWorkedHours) {
+        ResponsePost responsePost = new ResponsePost();
+        try{
+            employeeWorkedHoursRepository.save(employeeWorkedHours);
+            responsePost.setId(employeeWorkedHours.getEmployeeWorkedHoursId());
+            responsePost.setSuccess(Boolean.TRUE);
+        }catch (DataAccessException ex){
+            responsePost.setId(null);
+            responsePost.setSuccess(Boolean.TRUE);
+        }
+        return responsePost;
     }
     /********************************************************************************************/
     @PutMapping("/employeeworkedhours/{id}")

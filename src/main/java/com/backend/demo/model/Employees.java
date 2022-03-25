@@ -26,7 +26,7 @@ public class Employees {
     private String name;
 
     @Column(name = "last_name", nullable = false)
-    private String last_name;
+    private String lastName;
 
     @Basic(optional = false)
     @Column(name = "birthdate", nullable = false)
@@ -39,12 +39,12 @@ public class Employees {
     public Employees() {
     }
 
-    public Employees(long employeesId, Genders gendersId, Jobs jobsId, String name, String last_name, Date birthdate) {
+    public Employees(long employeesId, Genders gendersId, Jobs jobsId, String name, String lastName, Date birthdate) {
         this.employeesId = employeesId;
         this.gendersId = gendersId;
         //this.jobsId = jobsId;
         this.name = name;
-        this.last_name = last_name;
+        this.lastName = lastName;
         this.birthdate = birthdate;
     }
     /********************************************************************************************/
@@ -80,12 +80,12 @@ public class Employees {
         this.name = name;
     }
 
-    public String getLast_name() {
-        return last_name;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLast_name(String last_name) {
-        this.last_name = last_name;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public Date getBirthdate() {
@@ -103,7 +103,7 @@ public class Employees {
                 ", gendersId=" + gendersId +
 //                ", jobsId=" + jobsId +
                 ", name='" + name + '\'' +
-                ", last_name='" + last_name + '\'' +
+                ", last_name='" + lastName + '\'' +
                 ", birthdate=" + birthdate +
                 '}';
     }
