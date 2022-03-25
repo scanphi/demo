@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7780ee04-5ea5-4b13-a00c-6da5ec408dd5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/backend/demo/controller/TestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/backend/demo/configuration/GeneralConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/backend/demo/model/EmployeeWorkedHours.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/backend/demo/model/Employees.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/backend/demo/model/Genders.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/backend/demo/model/Jobs.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
@@ -37,7 +41,9 @@
     </option>
   </component>
   <component name="ProjectId" id="26rLkoASC6LG3nK6YpJJcll9XKj" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
