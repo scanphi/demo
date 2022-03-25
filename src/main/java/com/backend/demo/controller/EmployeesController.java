@@ -10,9 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @RestController
 @RequestMapping("/api/v1")
@@ -37,12 +35,24 @@ public class EmployeesController {
     public ResponsePost createEmployees(@Valid @RequestBody Employees employees) {
         ResponsePost responsePost = new ResponsePost();
         if (!employeesRepository.existsByNameAndLastName(employees.getName(), employees.getLastName())){
-            employeesRepository.save(employees);
-            responsePost.setId(employees.getEmployeesId());
-            responsePost.setSuccess(Boolean.TRUE);
+            Date birthdate = employees.getBirthdate();
+
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(birthdate);
+            int yearBirthdate = calendar.get(Calendar.YEAR);
+            int currentYear = Calendar. getInstance(). get(Calendar. YEAR);
+
+            if((currentYear-yearBirthdate)>=18){
+                employeesRepository.save(employees);
+                responsePost.setId(employees.getEmployeesId());
+                responsePost.setSuccess(Boolean.TRUE);
+            }else{
+                responsePost.setId(null);
+                responsePost.setSuccess(Boolean.FALSE);
+            }
         }else{
             responsePost.setId(null);
-            responsePost.setSuccess(Boolean.TRUE);
+            responsePost.setSuccess(Boolean.FALSE);
         }
         return responsePost;
     }

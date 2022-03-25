@@ -42,7 +42,7 @@ public class EmployeeWorkedHoursController {
             responsePost.setSuccess(Boolean.TRUE);
         }catch (DataAccessException ex){
             responsePost.setId(null);
-            responsePost.setSuccess(Boolean.TRUE);
+            responsePost.setSuccess(Boolean.FALSE);
         }
         return responsePost;
     }
