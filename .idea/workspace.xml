@@ -5,14 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7780ee04-5ea5-4b13-a00c-6da5ec408dd5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/backend/demo/configuration/GeneralConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/backend/demo/model/EmployeeWorkedHours.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/backend/demo/model/Employees.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/backend/demo/model/Genders.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/backend/demo/model/Jobs.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/backend/demo/repository/EmployeeWorkedHoursRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/backend/demo/repository/EmployeesRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/backend/demo/repository/GendersRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/backend/demo/repository/JobsRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +21,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
