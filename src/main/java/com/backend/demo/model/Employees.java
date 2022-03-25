@@ -1,7 +1,6 @@
 package com.backend.demo.model;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.Date;
@@ -31,13 +30,12 @@ public class Employees {
     private String last_name;
 
     @Basic(optional = false)
-    @NotNull
     @Column(name = "birthdate", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date birthdate;
     /********************************************************************************************/
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "employeesId")
-    private Collection<EmployeeWorkedHours> employeeWorkedHoursCollection;
+    //@OneToMany(cascade = CascadeType.ALL, mappedBy = "employeesId")
+    //private Collection<EmployeeWorkedHours> employeeWorkedHoursCollection;
     /********************************************************************************************/
     public Employees() {
     }
@@ -45,7 +43,7 @@ public class Employees {
     public Employees(long employeesId, Genders gendersId, Jobs jobsId, String name, String last_name, Date birthdate) {
         this.employeesId = employeesId;
         this.gendersId = gendersId;
-        this.jobsId = jobsId;
+        //this.jobsId = jobsId;
         this.name = name;
         this.last_name = last_name;
         this.birthdate = birthdate;
@@ -104,7 +102,7 @@ public class Employees {
         return "Employees{" +
                 "employeesId=" + employeesId +
                 ", gendersId=" + gendersId +
-                ", jobsId=" + jobsId +
+//                ", jobsId=" + jobsId +
                 ", name='" + name + '\'' +
                 ", last_name='" + last_name + '\'' +
                 ", birthdate=" + birthdate +

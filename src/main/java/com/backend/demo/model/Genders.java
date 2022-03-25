@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Collection;
 
 @Entity
-@Table(name = "employees")
+@Table(name = "genders")
 public class Genders {
     /********************************************************************************************/
     @Id

@@ -32,8 +32,6 @@ public class Jobs {
         this.salary = salary;
     }
     /********************************************************************************************/
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public long getJobsId() {
         return jobsId;
     }
