@@ -45,11 +45,11 @@ public class EmployeeWorkedHoursController {
 
             Date date = new Date();
             int comparacionFechas = employeeWorkedHours.getWorkedDate().compareTo(date);
-
-            if((comparacion==0 || comparacion==-1) && (comparacion==0 || comparacionFechas==-1)){
+            if((comparacion==0 || comparacion==-1) && (comparacion==0 || comparacionFechas==-1) && (!employeeWorkedHoursRepository.existsByEmployeesIdAndWorkedDate(employeeWorkedHours.getEmployeesId(), employeeWorkedHours.getWorkedDate()))){
                 employeeWorkedHoursRepository.save(employeeWorkedHours);
                 responsePost.setId(employeeWorkedHours.getEmployeeWorkedHoursId());
                 responsePost.setSuccess(Boolean.TRUE);
+
             }else{
                 responsePost.setId(null);
                 responsePost.setSuccess(Boolean.FALSE);

@@ -2,7 +2,6 @@ package com.backend.demo.controller;
 
 import com.backend.demo.exception.ResourceNotFoundException;
 import com.backend.demo.model.Employees;
-import com.backend.demo.model.Jobs;
 import com.backend.demo.repository.EmployeesRepository;
 import com.backend.demo.response.ResponsePost;
 import org.springframework.beans.factory.annotation.Autowired;
