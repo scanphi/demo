@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -36,10 +37,18 @@ public class EmployeeWorkedHoursController {
     @PostMapping("/employeeworkedhours")
     public ResponsePost createEmployeeWorkedHours(@Valid @RequestBody EmployeeWorkedHours employeeWorkedHours) {
         ResponsePost responsePost = new ResponsePost();
+        BigDecimal horasPermitidas = new BigDecimal(20);
         try{
-            employeeWorkedHoursRepository.save(employeeWorkedHours);
-            responsePost.setId(employeeWorkedHours.getEmployeeWorkedHoursId());
-            responsePost.setSuccess(Boolean.TRUE);
+            System.out.println("\n\n\n\n\n\n"+(employeeWorkedHours.getWorkedHours().compareTo(horasPermitidas))+"\n\n\n\n\n\n");
+            int comparacion = (employeeWorkedHours.getWorkedHours().compareTo(horasPermitidas));
+            if(comparacion==0||comparacion==-1){
+                employeeWorkedHoursRepository.save(employeeWorkedHours);
+                responsePost.setId(employeeWorkedHours.getEmployeeWorkedHoursId());
+                responsePost.setSuccess(Boolean.TRUE);
+            }else{
+                responsePost.setId(null);
+                responsePost.setSuccess(Boolean.FALSE);
+            }
         }catch (DataAccessException ex){
             responsePost.setId(null);
             responsePost.setSuccess(Boolean.FALSE);
