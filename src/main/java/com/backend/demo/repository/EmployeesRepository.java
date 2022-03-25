@@ -13,4 +13,6 @@ public interface EmployeesRepository extends JpaRepository<Employees, Long> {
 
     @Query(value="select * from employees a where a.name= :name and a.last_name= :lastName limit 1 offset 0", nativeQuery=true)
     Employees getEmployeesValidated(String name, String lastName);
-}
+
+    @Query(value="select * from employees inner join jobs on employees.jobs_id = jobs.jobs_id where jobs.name = :name", nativeQuery=true)
+    List<Employees> findByEmployeesJobName(String name);}

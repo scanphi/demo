@@ -83,4 +83,11 @@ public class EmployeesController {
         return response;
     }
     /********************************************************************************************/
+    @GetMapping("/employees/byjobname/{jobName}")
+    public ResponseEntity<List<Employees>> getEmployeesByJobName(@PathVariable(value = "jobName") String jobName)
+        throws ResourceNotFoundException {
+        List<Employees> employees = employeesRepository.findByEmployeesJobName(jobName);
+        return ResponseEntity.ok().body(employees);
+    }
+    /********************************************************************************************/
 }
